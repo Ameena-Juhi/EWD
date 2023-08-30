@@ -1,54 +1,46 @@
-package com.prodapt.learningspring;
+package com.prodapt.learningspring.model;
 
+import org.springframework.stereotype.Component;
+
+import jakarta.validation.constraints.Min;
+import lombok.Data;
+
+@Component
 public class Student {
-	
-	private String name;
-	private int score;
-	private int id;
-	
-	private static int idCounter = 1;
-	
-	public Student(String name, int score) {
-		this.name = name;
-		this.score = score;
-		this.id = idCounter++;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setScore(int score) {
-		this.score = score;
-	}
-	
-	public int getScore(int score) {
-		return score;
-	}
-	
-	public int getId() {
-		return id;
-	}
-	
-	@Override
-	public String toString() {
-		return String.format("%s %d", name, score);
-	}
-	
-	@Override
-	public boolean equals(Object other) {
-		if (other == null)
-			return false;
-		if (other == this)
-			return true;
-		if (other.getClass() != getClass())
-			return false;
-		Student otherStudent = (Student) other;
-		return otherStudent.id == this.id;
-	}
-
+  private int id;
+  private String name;
+  @Min(value = 0) private int score;
+  private int rank; 
+  
+  public void setId(int id) {
+	  this.id = id;
+  }
+  
+  public void setName(String name) {
+	  this.name = name;
+  }
+  
+  public void setScore(int score) {
+	  this.score = score;
+  }
+  
+  public void setRank(int rank) {
+	  this.rank = rank;
+  }
+  
+  public int getRank() {
+	  return this.rank;
+  }
+  
+  public String getName() {
+	  return this.name;
+  }
+  
+  public int getScore() {
+	  return this.score;
+  }
+  
+  public int getId() {
+	  return this.id;
+  }
 }
