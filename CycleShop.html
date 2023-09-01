@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cycle Shop</title>
+</head>
+<body>
+<h1>Cycle for Rent</h1>
+<div th:each="cycle : ${Cycles}">
+<p th:text="*{id} ">Cycle id</p>
+<p th:text="*{name}">Cycle name</p>
+<p th:text="*{color} ">Cycle color</p>
+<p th:if="*{available} ">Cycle is available</p></div>
+</body>
+</html>
